@@ -1,8 +1,8 @@
-import google.generativeai as genai
+from google import genai
 import os
+import time
+client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-model = genai.GenerativeModel("gemini-2.0-flash")  
 
 with open("changed_files.txt") as f:
     files = [l.strip() for l in f.readlines() if l.strip().endswith(".py")]
@@ -37,7 +37,7 @@ File: `{filepath}`
 Format the Mermaid diagram inside a ```mermaid code block.
 Keep the explanation concise and developer-friendly."""
 
-    response = model.generate_content(prompt)
+    response = client.models.generate_content(prompt)
     explanation = response.text
     output.append(f"##  `{filepath}`\n\n{explanation}\n\n---\n")
 
