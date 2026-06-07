@@ -172,7 +172,7 @@ if __name__ == "__main__":
     cart.apply_coupon("VIP20")
 
     processor = OrderProcessor()
-    order = processor.place_order("Gabby", cart)
+    order = processor.place_order("Gabby Creator", cart)
     print(order.summary())
 
     processor.ship_order(order.order_id)
