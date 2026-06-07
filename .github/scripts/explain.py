@@ -37,8 +37,9 @@ File: `{filepath}`
 Format the Mermaid diagram inside a ```mermaid code block.
 Keep the explanation concise and developer-friendly."""
     response = client.models.generate_content(
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
     contents=prompt
+    
 )
     explanation = response.text
     output.append(f"##  `{filepath}`\n\n{explanation}\n\n---\n")
