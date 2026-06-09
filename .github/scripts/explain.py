@@ -35,6 +35,11 @@ File: `{filepath}`
 ```
 
 Format the Mermaid diagram inside a ```mermaid code block.
+Follow these Mermaid rules strictly:
+- Use `flowchart TD` not `graph TD`
+- No semicolons at the end of lines
+- No double quotes inside node labels
+- Use single words or hyphenated-words inside node labels
 Keep the explanation concise and developer-friendly."""
     response = client.models.generate_content(
     model="gemini-2.5-flash",
